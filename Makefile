@@ -55,14 +55,37 @@ test:
 #===================#
 #=== Migrations ====#
 #===================#
+DATABASE_CONNECTION ?= "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTGRES_HOST}:${POSTGRES_PORT}/${POSTGRES_DB}?sslmode=disable"
+MIGRATION_PATH ?= ${CURDIR}/migrations
+CONTAINER_MIGRATION_PATH ?= /migrations/
+MIGRATION_VOLUME ?= ${MIGRATION_PATH}:${CONTAINER_MIGRATION_PATH}
 # Migration down with migration_msg = msg for all
+
 migration-create:
-	@docker run --rm -v /Users/hoangthinh/Data/Learning/Backend/go/go-market/migrations:/migrations --network host migrate/migrate -path=/migrations/ -database "postgres://thinhlh:thinhlh@localhost:5432/go_ecommerce?sslmode=disable" create -ext sql -dir /migrations $(migration_msg)
+	@docker run \
+	--rm \
+	-v ${MIGRATION_VOLUME} \
+	--network host migrate/migrate \
+	-path=${CONTAINER_MIGRATION_PATH} \
+	-database ${DATABASE_CONNECTION} \
+	create -ext sql -dir /migrations $(migration_msg)
 
 # Migration down with step = N / {{space}} for all
 migration-up:
-	@docker run --rm -v /Users/hoangthinh/Data/Learning/Backend/go/go-market/migrations:/migrations --network host migrate/migrate -path=/migrations/ -database "postgres://thinhlh:thinhlh@localhost:5432/go_ecommerce?sslmode=disable" up ${step}
+	@docker run \
+	--rm \
+	-v ${MIGRATION_VOLUME} \
+	--network host migrate/migrate \
+	-path=${CONTAINER_MIGRATION_PATH} \
+	-database ${DATABASE_CONNECTION} \
+	up ${step}
 
 # Migration down with step = N / -all
 migration-down:
-	@echo y | docker run --rm -v /Users/hoangthinh/Data/Learning/Backend/go/go-market/migrations:/migrations --network host migrate/migrate -path=/migrations/ -database "postgres://thinhlh:thinhlh@localhost:5432/go_ecommerce?sslmode=disable" down ${step}
+	@echo y | docker run \
+	--rm \
+	-v ${MIGRATION_VOLUME} \
+	--network host migrate/migrate \
+	-path=${CONTAINER_MIGRATION_PATH} \
+	-database ${DATABASE_CONNECTION} \
+	down ${step}
