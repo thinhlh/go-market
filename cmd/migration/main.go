@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/golang-migrate/migrate/v4"
-	"github.com/thinhlh/go-web-101/internal/core/config"
+	"github.com/thinhlh/go-market/internal/core/config"
 )
 
 func main() {

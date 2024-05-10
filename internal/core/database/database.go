@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/thinhlh/go-web-101/internal/core/config"
+	"github.com/thinhlh/go-market/internal/core/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )

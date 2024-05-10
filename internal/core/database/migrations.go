@@ -1,7 +1,7 @@
 package database
 
 import (
-	"github.com/thinhlh/go-web-101/internal/app/product/domain"
+	"github.com/thinhlh/go-market/internal/app/product/domain"
 )
 
 func (db *Database) Migration() error {

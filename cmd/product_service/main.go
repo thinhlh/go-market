@@ -1,6 +1,6 @@
 package main
 
-import "github.com/thinhlh/go-web-101/internal/app/product/boot"
+import "github.com/thinhlh/go-market/internal/app/product/boot"
 
 func main() {
 	boot.Init()

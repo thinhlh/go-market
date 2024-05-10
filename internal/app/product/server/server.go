@@ -8,10 +8,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/thinhlh/go-web-101/internal/app/product/presentation"
-	bootmanager "github.com/thinhlh/go-web-101/internal/core/boot_manager"
-	"github.com/thinhlh/go-web-101/internal/core/config"
-	"github.com/thinhlh/go-web-101/internal/core/database"
+	"github.com/thinhlh/go-market/internal/app/product/presentation"
+	bootmanager "github.com/thinhlh/go-market/internal/core/boot_manager"
+	"github.com/thinhlh/go-market/internal/core/config"
+	"github.com/thinhlh/go-market/internal/core/database"
 )
 
 func New() bootmanager.Daemon {

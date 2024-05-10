@@ -2,7 +2,7 @@ version: "3.0"
 services:
   db:
     image: postgres
-    container_name: go-web-101-db
+    container_name: go-market-db
     environment:
       - POSTGRES_USER
       - POSTGRES_PASSWORD
@@ -10,9 +10,9 @@ services:
     profiles:
       - dependencies
     volumes:
-      - go-web-101-db-volumes:/var/lib/postgresql/data
+      - go-market-db-volumes:/var/lib/postgresql/data
     networks:
-      - go-web-101-network
+      - go-market-network
     ports:
       - "5432:5432"
     expose:
@@ -36,7 +36,7 @@ services:
     ports:
       - 8080:8080
     networks:
-      - go-web-101-network
+      - go-market-network
     profiles:
       - "app"
     depends_on:
@@ -55,7 +55,7 @@ services:
     ports:
       - 8081:8081
     networks:
-      - go-web-101-network
+      - go-market-network
     profiles:
       - "app"
     depends_on:
@@ -63,9 +63,9 @@ services:
     restart: always
 
 networks:
-  go-web-101-network:
+  go-market-network:
     driver: bridge
 
 volumes:
-  go-web-101-db-volumes:
+  go-market-db-volumes:
     driver: local

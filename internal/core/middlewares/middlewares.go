@@ -7,7 +7,7 @@ import (
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
 	"github.com/go-chi/httprate"
-	"github.com/thinhlh/go-web-101/internal/core/config"
+	"github.com/thinhlh/go-market/internal/core/config"
 )
 
 func AttachRestMiddlewares(router *chi.Mux, config config.Config) {

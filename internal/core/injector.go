@@ -5,9 +5,9 @@ package core
 
 import (
 	"github.com/google/wire"
-	"github.com/thinhlh/go-web-101/internal/app/product/application"
-	"github.com/thinhlh/go-web-101/internal/app/product/infrastructure"
-	"github.com/thinhlh/go-web-101/internal/app/product/presentation"
+	"github.com/thinhlh/go-market/internal/app/product/application"
+	"github.com/thinhlh/go-market/internal/app/product/infrastructure"
+	"github.com/thinhlh/go-market/internal/app/product/presentation"
 )
 
 type Initialization struct {

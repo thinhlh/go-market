@@ -3,8 +3,8 @@ package infrastructure
 import (
 	"fmt"
 
-	"github.com/thinhlh/go-web-101/internal/app/product/domain"
-	"github.com/thinhlh/go-web-101/internal/core/database"
+	"github.com/thinhlh/go-market/internal/app/product/domain"
+	"github.com/thinhlh/go-market/internal/core/database"
 )
 
 type ProductRepository interface {

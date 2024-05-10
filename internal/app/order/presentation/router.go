@@ -2,9 +2,9 @@ package presentation
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/thinhlh/go-web-101/internal/core/config"
-	"github.com/thinhlh/go-web-101/internal/core/database"
-	"github.com/thinhlh/go-web-101/internal/core/middlewares"
+	"github.com/thinhlh/go-market/internal/core/config"
+	"github.com/thinhlh/go-market/internal/core/database"
+	"github.com/thinhlh/go-market/internal/core/middlewares"
 )
 
 func NewOrderRouter(config config.Config, connection *database.Database) *chi.Mux {

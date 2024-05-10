@@ -2,11 +2,11 @@ package presentation
 
 import (
 	"github.com/go-chi/chi/v5"
-	"github.com/thinhlh/go-web-101/internal/app/product/application"
-	"github.com/thinhlh/go-web-101/internal/app/product/infrastructure"
-	"github.com/thinhlh/go-web-101/internal/core/config"
-	"github.com/thinhlh/go-web-101/internal/core/database"
-	"github.com/thinhlh/go-web-101/internal/core/middlewares"
+	"github.com/thinhlh/go-market/internal/app/product/application"
+	"github.com/thinhlh/go-market/internal/app/product/infrastructure"
+	"github.com/thinhlh/go-market/internal/core/config"
+	"github.com/thinhlh/go-market/internal/core/database"
+	"github.com/thinhlh/go-market/internal/core/middlewares"
 )
 
 func NewProductRouter(config config.Config, connection *database.Database) *chi.Mux {

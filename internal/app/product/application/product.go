@@ -1,8 +1,8 @@
 package application
 
 import (
-	"github.com/thinhlh/go-web-101/internal/app/product/domain"
-	"github.com/thinhlh/go-web-101/internal/app/product/infrastructure"
+	"github.com/thinhlh/go-market/internal/app/product/domain"
+	"github.com/thinhlh/go-market/internal/app/product/infrastructure"
 )
 
 type ProductService interface {

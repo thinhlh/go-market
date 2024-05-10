@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/thinhlh/go-web-101/internal/app/product/application"
-	"github.com/thinhlh/go-web-101/internal/core/dto"
+	"github.com/thinhlh/go-market/internal/app/product/application"
+	"github.com/thinhlh/go-market/internal/core/dto"
 )
 
 type ProductController struct {
