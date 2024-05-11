@@ -6,12 +6,15 @@ import (
 	"github.com/thinhlh/go-market/internal/core/config"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 type Database struct{ *gorm.DB }
 
 func NewDatabaseConnection(config config.DatabaseConfig) (*Database, error) {
-	gormConfig := &gorm.Config{}
+	gormConfig := &gorm.Config{
+		Logger: logger.Default.LogMode(logger.Info),
+	}
 
 	dns := fmt.Sprintf(
 		"host=%v user=%v  password=%v dbname=%v port=%v",

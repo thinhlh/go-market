@@ -19,23 +19,15 @@ func TestProduct_NewProduct(t *testing.T) {
 
 	testCases := []testCase{
 		{
-			test:  "Create Product Sucessfully",
-			name:  "Macbook",
-			price: 3000,
-			properties: product.ProductProperty{
-				Size:  "14 inches",
-				Color: "Grey",
-			},
+			test:        "Create Product Sucessfully",
+			name:        "Macbook",
+			price:       3000,
 			expectedErr: nil,
 		},
 		{
-			test:  "Create Product Unsucessfully when name is empty",
-			name:  "",
-			price: 3000,
-			properties: product.ProductProperty{
-				Size:  "14 inches",
-				Color: "Grey",
-			},
+			test:        "Create Product Unsucessfully when name is empty",
+			name:        "",
+			price:       3000,
 			expectedErr: product.ErrInvalidProductName,
 		},
 	}

@@ -4,20 +4,19 @@ import (
 	"errors"
 
 	"github.com/google/uuid"
-	"gorm.io/gorm"
 )
 
 // Root Entity & Aggregate
 type Product struct {
-	gorm.Model
-	ID         uuid.UUID `gorm:"primaryKey;type:uuid;default:uuid_generate_v4()"`
-	Name       *string   `gorm:"index"`
-	Price      *float64
-	Properties *ProductProperty `gorm:"embedded"`
+	ID    uuid.UUID `json:"id"`
+	Name  *string   `json:"name"`
+	Price *float64  `json:"price"`
 }
 
+var ProductTableName string = "product"
+
 var (
-	ErrInvalidProductName = errors.New("invalid product name!")
+	ErrInvalidProductName = errors.New("invalid product name")
 )
 
 func New(name string, price float64, properties ProductProperty) (*Product, error) {
@@ -26,10 +25,8 @@ func New(name string, price float64, properties ProductProperty) (*Product, erro
 		return nil, ErrInvalidProductName
 	}
 	product := &Product{
-		ID:         uuid.New(),
-		Name:       &name,
-		Price:      &price,
-		Properties: &properties,
+		Name:  &name,
+		Price: &price,
 	}
 
 	return product, nil

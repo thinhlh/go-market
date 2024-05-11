@@ -18,6 +18,6 @@ const (
 )
 
 type ProductProperty struct {
-	Size  string
-	Color string
+	// Size  string
+	// Color string
 }

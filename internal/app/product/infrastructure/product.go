@@ -1,15 +1,13 @@
 package infrastructure
 
 import (
-	"fmt"
-
 	"github.com/thinhlh/go-market/internal/app/product/domain"
 	"github.com/thinhlh/go-market/internal/core/database"
 )
 
 type ProductRepository interface {
 	GetAllProducts() []domain.Product
-	GetProductById() domain.Product
+	GetProductById(id string) domain.Product
 }
 
 func NewProductRepository(db *database.Database) ProductRepository {
@@ -21,25 +19,18 @@ type ProductRepositoryImpl struct {
 }
 
 func (r ProductRepositoryImpl) GetAllProducts() []domain.Product {
-	type result struct {
-		Name string
-	}
+	var products []domain.Product
 
-	var res result
-	r.DB.Raw("SELECT 'Jamie' as name").Scan(&res)
+	r.DB.Table(domain.ProductTableName).Find(&products)
 
-	return make([]domain.Product, 0)
+	return products
+
 }
 
-func (r ProductRepositoryImpl) GetProductById() domain.Product {
-	type result struct {
-		Name string
-	}
+func (r ProductRepositoryImpl) GetProductById(id string) domain.Product {
 
-	var res result
-	r.DB.Exec("SELECT 'Jamie' as name").Scan(&res)
+	var product domain.Product
+	r.DB.Table(domain.ProductTableName).First(&product, "id=?", id)
 
-	fmt.Println(res)
-
-	return make([]domain.Product, 0)[0]
+	return product
 }

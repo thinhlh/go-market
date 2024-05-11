@@ -7,7 +7,7 @@ import (
 
 type ProductService interface {
 	GetAllProducts() []domain.Product
-	GetProductById() domain.Product
+	GetProductById(id string) domain.Product
 }
 
 type ProductServiceImpl struct {
@@ -22,6 +22,6 @@ func (s ProductServiceImpl) GetAllProducts() []domain.Product {
 	return s.repository.GetAllProducts()
 }
 
-func (s ProductServiceImpl) GetProductById() domain.Product {
-	return s.repository.GetProductById()
+func (s ProductServiceImpl) GetProductById(id string) domain.Product {
+	return s.repository.GetProductById(id)
 }
