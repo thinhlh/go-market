@@ -117,6 +117,7 @@
   - [ ] MessageQueue
   - [ ] GraphQL
   - [ ] gRPC
+  - [ ] Saga pattern
   - [ ] Monorepo
   - [ ] CMS Integration
   - [ ] High-level application architecture docs
