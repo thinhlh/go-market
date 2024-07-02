@@ -10,15 +10,16 @@ var shutdownSignals = []os.Signal{syscall.SIGHUP, syscall.SIGINT, syscall.SIGQUI
 
 type Daemon func()
 
-func Bootstrap(daemon Daemon) {
+func Bootstrap(daemon func() Daemon) {
 	sigs := make(chan os.Signal, 1)
 
 	signal.Notify(sigs, shutdownSignals...)
 
+	cleanUp := daemon()
 	// Wait for shutdown signal
 	<-sigs
 
 	// Execute shutdown clean up
-	daemon()
+	cleanUp()
 	close(sigs)
 }

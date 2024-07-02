@@ -59,8 +59,8 @@ DATABASE_CONNECTION ?= "postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${POSTG
 MIGRATION_PATH ?= ${CURDIR}/migrations
 CONTAINER_MIGRATION_PATH ?= /migrations/
 MIGRATION_VOLUME ?= ${MIGRATION_PATH}:${CONTAINER_MIGRATION_PATH}
-# Migration down with migration_msg = msg for all
 
+# Migration create with migration_msg = msg for all
 migration-create:
 	@docker run \
 	--rm \

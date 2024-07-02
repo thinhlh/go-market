@@ -6,5 +6,5 @@ import (
 )
 
 func Init() {
-	bootmanager.Bootstrap(server.New())
+	bootmanager.Bootstrap(server.New)
 }
