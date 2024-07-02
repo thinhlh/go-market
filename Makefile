@@ -17,7 +17,7 @@ pre-run:
 
 # Run dependencies only
 clear:
-	@docker compose -f ${DOCKER_COMPOSE_FILE} down --rmi local -v --remove-orphans
+	@docker compose -f ${DOCKER_COMPOSE_FILE} --env-file .env down --rmi local -v --remove-orphans
 
 # Install Golang dependencies
 install:
